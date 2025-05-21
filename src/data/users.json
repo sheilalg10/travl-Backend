@@ -1,0 +1,183 @@
+[
+    {
+      "id": "000123459",
+      "name": "John Doe",
+      "image": "https://randomuser.me/api/portraits/men/5.jpg",
+      "orderDate": "Feb 12th 2022 02:15 PM",
+      "checkIn": {
+        "date": "Feb 14th, 2022",
+        "hour": "3:00 PM"
+      },
+      "checkOut": {
+        "date": "Feb 18th, 2022",
+        "hour": "11:00 AM"
+      },
+      "specialRequest": {
+        "status": false,
+        "text": ""
+      },
+      "roomType": "Deluxe A - 03",
+      "status": "Checked In"
+    },
+    {
+      "id": "000123460",
+      "name": "Maria Gonzalez",
+      "image": "https://randomuser.me/api/portraits/women/12.jpg",
+      "orderDate": "Mar 5th 2022 09:30 AM",
+      "checkIn": {
+        "date": "Mar 10th, 2022",
+        "hour": "2:00 PM"
+      },
+      "checkOut": {
+        "date": "Mar 15th, 2022",
+        "hour": "12:00 PM"
+      },
+      "specialRequest": {
+        "status": true,
+        "text": "Late checkout"
+      },
+      "roomType": "Suite B - 01",
+      "status": "Checked Out"
+    },
+    {
+      "id": "000123461",
+      "name": "Liam Brown",
+      "image": "https://randomuser.me/api/portraits/men/33.jpg",
+      "orderDate": "Apr 2nd 2022 07:45 PM",
+      "checkIn": {
+        "date": "Apr 5th, 2022",
+        "hour": "4:00 PM"
+      },
+      "checkOut": {
+        "date": "Apr 10th, 2022",
+        "hour": "10:00 AM"
+      },
+      "specialRequest": {
+        "status": true,
+        "text": "Allergy-free pillows"
+      },
+      "roomType": "Premium D - 07",
+      "status": "Booked"
+    },
+    {
+      "id": "000123462",
+      "name": "Emma Wilson",
+      "image": "https://randomuser.me/api/portraits/women/25.jpg",
+      "orderDate": "May 1st 2022 11:00 AM",
+      "checkIn": {
+        "date": "May 3rd, 2022",
+        "hour": "1:00 PM"
+      },
+      "checkOut": {
+        "date": "May 7th, 2022",
+        "hour": "9:00 AM"
+      },
+      "specialRequest": {
+        "status": false,
+        "text": ""
+      },
+      "roomType": "Standard E - 09",
+      "status": "Cancelled"
+    },
+    {
+      "id": "000123463",
+      "name": "Noah Davis",
+      "image": "https://randomuser.me/api/portraits/men/40.jpg",
+      "orderDate": "Jun 10th 2022 03:50 PM",
+      "checkIn": {
+        "date": "Jun 12th, 2022",
+        "hour": "5:00 PM"
+      },
+      "checkOut": {
+        "date": "Jun 14th, 2022",
+        "hour": "10:30 AM"
+      },
+      "specialRequest": {
+        "status": true,
+        "text": "Extra towels"
+      },
+      "roomType": "Economy F - 02",
+      "status": "Booked"
+    },
+    {
+      "id": "000123464",
+      "name": "Olivia Martinez",
+      "image": "https://randomuser.me/api/portraits/women/30.jpg",
+      "orderDate": "Jul 8th 2022 04:25 PM",
+      "checkIn": {
+        "date": "Jul 10th, 2022",
+        "hour": "6:00 PM"
+      },
+      "checkOut": {
+        "date": "Jul 15th, 2022",
+        "hour": "12:00 PM"
+      },
+      "specialRequest": {
+        "status": false,
+        "text": ""
+      },
+      "roomType": "Deluxe C - 06",
+      "status": "Checked In"
+    },
+    {
+      "id": "000123465",
+      "name": "James Anderson",
+      "image": "https://randomuser.me/api/portraits/men/15.jpg",
+      "orderDate": "Aug 15th 2022 10:00 AM",
+      "checkIn": {
+        "date": "Aug 17th, 2022",
+        "hour": "2:30 PM"
+      },
+      "checkOut": {
+        "date": "Aug 21st, 2022",
+        "hour": "11:30 AM"
+      },
+      "specialRequest": {
+        "status": true,
+        "text": "Birthday decoration"
+      },
+      "roomType": "Suite A - 04",
+      "status": "Booked"
+    },
+    {
+      "id": "000123466",
+      "name": "Isabella Moore",
+      "image": "https://randomuser.me/api/portraits/women/41.jpg",
+      "orderDate": "Sep 3rd 2022 01:10 PM",
+      "checkIn": {
+        "date": "Sep 5th, 2022",
+        "hour": "3:45 PM"
+      },
+      "checkOut": {
+        "date": "Sep 8th, 2022",
+        "hour": "10:00 AM"
+      },
+      "specialRequest": {
+        "status": false,
+        "text": ""
+      },
+      "roomType": "Premium B - 08",
+      "status": "Checked Out"
+    },
+    {
+      "id": "000123467",
+      "name": "William Taylor",
+      "image": "https://randomuser.me/api/portraits/men/22.jpg",
+      "orderDate": "Oct 9th 2022 06:30 PM",
+      "checkIn": {
+        "date": "Oct 11th, 2022",
+        "hour": "4:15 PM"
+      },
+      "checkOut": {
+        "date": "Oct 14th, 2022",
+        "hour": "11:00 AM"
+      },
+      "specialRequest": {
+        "status": true,
+        "text": "Early check-in"
+      },
+      "roomType": "Standard G - 11",
+      "status": "Booked"
+    }
+  ]
+  
