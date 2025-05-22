@@ -1,66 +1,57 @@
 import path from "path";
-import fs from 'fs';
+import fs from "fs";
 import Room from "../interfaces/roomsInterface";
 
-const roomsPath = path.join(__dirname, '../data/rooms.json');
+const roomsPath = path.join(__dirname, "../data/rooms.json");
 
-interface Data {
-    rooms: Room[]
-}
-
-function readData(): Data {
-  const jsonData = fs.readFileSync(roomsPath, 'utf-8');
+// Leemos el array directamente
+function readRooms(): Room[] {
+  const jsonData = fs.readFileSync(roomsPath, "utf-8");
   return JSON.parse(jsonData);
 }
 
-function writeData(data: Data): void {
-  fs.writeFileSync(roomsPath, JSON.stringify(data, null, 2), 'utf-8');
+// Escribimos el array directamente
+function writeRooms(rooms: Room[]): void {
+  fs.writeFileSync(roomsPath, JSON.stringify(rooms, null, 2), "utf-8");
 }
 
+// GET all
 export const fetchAllRooms = (): Room[] => {
-  return readData().rooms;
+  return readRooms();
 };
 
+// GET by ID
 export const fetchRoomById = (id: string): Room | undefined => {
-  return readData().rooms.find(r => r.id === id);
+  return readRooms().find((room) => room.id === id);
 };
 
+// POST
 export const addRoom = (room: Room): Room => {
-  const data = readData();
-  data.rooms.push(room);
-  writeData(data);
+  const rooms = readRooms();
+  rooms.push(room);
+  writeRooms(rooms);
   return room;
 };
 
-export const updateRoom = (id: string, updatedFields: Partial<Room>): Room | null => {
-  const data = readData();
-  const index = data.rooms.findIndex(room => room.id === id);
+// PUT
+export const updateRoom = (id: string, updatedData: Partial<Room>): Room | null => {
+  const rooms = readRooms();
+  const index = rooms.findIndex((r) => r.id === id);
+  if (index === -1) return null;
 
-  if (index === -1) {
-    return null;
-  }
-
-  const updatedRoom = {
-    ...data.rooms[index],
-    ...updatedFields
-  };
-
-  data.rooms[index] = updatedRoom;
-  writeData(data);
-
+  const updatedRoom = { ...rooms[index], ...updatedData };
+  rooms[index] = updatedRoom;
+  writeRooms(rooms);
   return updatedRoom;
 };
 
+// DELETE
 export const deleteRoom = (id: string): boolean => {
-  const data = readData();
-  const initialLength = data.rooms.length;
+  const rooms = readRooms();
+  const index = rooms.findIndex((r) => r.id === id);
+  if (index === -1) return false;
 
-  data.rooms = data.rooms.filter(room => room.id !== id);
-
-  if (data.rooms.length === initialLength) {
-    return false;
-  }
-
-  writeData(data);
+  rooms.splice(index, 1);
+  writeRooms(rooms);
   return true;
 };

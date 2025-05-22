@@ -1,14 +1,12 @@
-import express from 'express';
+import express from "express";
+import apiRouter from "./routes/apiRoutes";
 
 const app = express();
+const PORT = 3000;
+
 app.use(express.json());
+app.use("/api", apiRouter);
 
-const apiRoutes = require("./routes/apiRoutes");
-
-app.use('/api',apiRoutes);
-
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () =>{
-    console.log(`Server escuchando en el puerto ${PORT}`)
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });

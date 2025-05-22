@@ -1,7 +1,8 @@
-const apiRouter = require("express").Router();
+import { Router } from "express";
+import routerRoom from "./roomsRouter";
 
-const roomRouter = require("./roomsRouter");
+const apiRoutes = Router();
 
-apiRouter.use("/rooms", roomRouter);
+apiRoutes.use('/rooms', routerRoom);
 
-module.exports = apiRouter;
+export default apiRoutes;
