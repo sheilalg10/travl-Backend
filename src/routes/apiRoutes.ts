@@ -2,6 +2,7 @@ import { Router } from "express";
 import routerRoom from "./roomsRouter";
 import routerBooking from "./bookingRouter";
 import routerEmployees from "./employeesRouter";
+import routerUser from "./usersRouter";
 
 const apiRoutes = Router();
 
@@ -16,6 +17,8 @@ apiRoutes.get("/", (req, res) => {
       { path: "/api/bookings/:id", methods: ["GET", "PUT", "DELETE"] },
       { path: "/api/employees", methods: ["GET", "POST"] },
       { path: "/api/employees/:id", methods: ["GET", "PUT", "DELETE"] },
+      { path: "/api/users", methods: ["GET", "POST"] },
+      { path: "/api/users/:id", methods: ["GET", "PUT", "DELETE"] },
     ],
   });
 });
@@ -23,5 +26,6 @@ apiRoutes.get("/", (req, res) => {
 apiRoutes.use("/rooms", routerRoom);
 apiRoutes.use("/bookings", routerBooking);
 apiRoutes.use("/employees", routerEmployees);
+apiRoutes.use("/users", routerUser);
 
 export default apiRoutes;
