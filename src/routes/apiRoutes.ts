@@ -3,6 +3,9 @@ import routerRoom from "./roomsRouter";
 import routerBooking from "./bookingRouter";
 import routerEmployees from "./employeesRouter";
 import routerUser from "./usersRouter";
+import authRouter from "./authRouter";
+import { authenticateToken } from "../middleware/authMiddleware";
+
 
 const apiRoutes = Router();
 
@@ -19,13 +22,15 @@ apiRoutes.get("/", (req, res) => {
       { path: "/api/employees/:id", methods: ["GET", "PUT", "DELETE"] },
       { path: "/api/users", methods: ["GET", "POST"] },
       { path: "/api/users/:id", methods: ["GET", "PUT", "DELETE"] },
+      { path: "/api/login", methods: ["POST"] }
     ],
   });
 });
 
-apiRoutes.use("/rooms", routerRoom);
-apiRoutes.use("/bookings", routerBooking);
-apiRoutes.use("/employees", routerEmployees);
-apiRoutes.use("/users", routerUser);
+apiRoutes.use("/login", authRouter);
+apiRoutes.use("/rooms", authenticateToken, routerRoom);
+apiRoutes.use("/bookings", authenticateToken, routerBooking);
+apiRoutes.use("/employees", authenticateToken, routerEmployees);
+apiRoutes.use("/users", authenticateToken, routerUser);
 
 export default apiRoutes;
