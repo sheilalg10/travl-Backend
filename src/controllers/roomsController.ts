@@ -62,7 +62,7 @@ export const getOneRoom = (req: Request, res: Response): void => {
   const room = fetchRoomById(req.params.id);
   if (!room) {
     res.status(404).json({ message: 'Room not found' });
-    return; // <- Evita continuar si no existe
+    return;
   }
   res.json(room);
 };

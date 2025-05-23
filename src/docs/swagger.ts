@@ -26,47 +26,111 @@ const options: swaggerJsdoc.Options = {
         Employee: {
           type: 'object',
           properties: {
-            employeeId: { type: 'string', example: 'EMP001' },
-            name: { type: 'string', example: 'María García' },
-            image: { type: 'string', format: 'uri', example: 'https://randomuser.me/api/portraits/women/21.jpg' },
-            jobDesk: { type: 'string', example: 'Front Desk Manager' },
-            schedule: { type: 'array', items: { type: 'string', example: 'Mon' } },
-            hireDate: { type: 'string', format: 'date', example: '2021-06-15' },
-            contact: { type: 'string', example: '+34-600-123-456' },
-            status: { type: 'string', enum: ['Active', 'Inactive'] }
+            id: { type: 'string', example: '12341225' },
+            name: { type: 'string', example: 'María Carey' },
+            image: { type: 'string', format: 'uri', example: 'https://randomuser.me/api/portraits/women/1.jpg' },
+            joined: { type: 'string', example: 'Aug 2th 2017' },
+            jobDesk: { 
+              type: 'array', 
+              items: { type: 'string', example: 'Answering guest inquiries' }
+            },
+            schedule: { 
+              type: 'array', 
+              items: { type: 'string', example: 'Monday' }
+            },
+            contact: { type: 'string', example: '123 2345 1234' },
+            status: { type: 'string', enum: ['Active', 'Inactive'], example: 'Active' }
           },
-          required: ['employeeId','name','image','jobDesk','schedule','hireDate','contact','status']
+          required: ['id', 'name', 'image', 'joined', 'jobDesk', 'schedule', 'contact', 'status']
         },
-        Guest: {
+        Bookings: {
           type: 'object',
           properties: {
-            guest: { type: 'string', example: 'Cathyadi Purnomo' },
-            reservationId: { type: 'string', example: 'U001' },
-            orderDate: { type: 'string', format: 'date-time', example: '2025-11-01T09:21:00Z' },
-            checkIn: { type: 'string', format: 'date-time', example: '2025-11-23T15:00:00Z' },
-            checkOut: { type: 'string', format: 'date-time', example: '2025-11-25T11:00:00Z' },
-            specialRequest: { type: 'string', example: 'Late check-in, please have a vegan meal ready.' },
+            id: { type: 'string', example: '000123456' },
+            name: { type: 'string', example: 'Cahyadi Purnomo' },
+            image: { type: 'string', format: 'uri', example: 'https://randomuser.me/api/portraits/women/1.jpg' },
+            orderDate: { type: 'string', example: 'Oct 30th 2020 09:21 AM' },
+            checkIn: {
+              type: 'object',
+              properties: {
+                date: { type: 'string', example: 'Nov 2nd, 2020' },
+                hour: { type: 'string', example: '9:46 PM' }
+              }
+            },
+            checkOut: {
+              type: 'object',
+              properties: {
+                date: { type: 'string', example: 'Nov 4th, 2020' },
+                hour: { type: 'string', example: '6:12 PM' }
+              }
+            },
+            specialRequest: {
+              type: 'object',
+              properties: {
+                status: { type: 'boolean', example: true },
+                text: { type: 'string', example: 'View Notes' }
+              }
+            },
             roomType: { type: 'string', example: 'Deluxe A - 02' },
-            status: { type: 'string', enum: ['Checked In','Pending','Booked','Cancelled','Refunded'] },
-            email: { type: 'string', format: 'email', example: 'cathyadi.purnomo@example.com' },
-            phone: { type: 'string', example: '+1-202-555-0134' },
-            image: { type: 'string', format: 'uri', example: 'https://randomuser.me/api/portraits/women/1.jpg' }
+            status: { type: 'string', example: 'Refund' }
           },
-          required: ['guest','reservationId','orderDate','checkIn','checkOut','roomType','status','email','phone']
+          required: ['id', 'name', 'image', 'orderDate', 'checkIn', 'checkOut', 'specialRequest', 'roomType', 'status']
+        },
+        Users: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', example: '000123459' },
+            name: { type: 'string', example: 'John Doe' },
+            image: { type: 'string', format: 'uri', example: 'https://randomuser.me/api/portraits/men/5.jpg' },
+            orderDate: { type: 'string', example: 'Feb 12th 2022 02:15 PM' },
+            checkIn: {
+              type: 'object',
+              properties: {
+                date: { type: 'string', example: 'Feb 14th, 2022' },
+                hour: { type: 'string', example: '3:00 PM' }
+              }
+            },
+            checkOut: {
+              type: 'object',
+              properties: {
+                date: { type: 'string', example: 'Feb 18th, 2022' },
+                hour: { type: 'string', example: '11:00 AM' }
+              }
+            },
+            specialRequest: {
+              type: 'object',
+              properties: {
+                status: { type: 'boolean', example: false },
+                text: { type: 'string', example: '' }
+              }
+            },
+            roomType: { type: 'string', example: 'Deluxe A - 03' },
+            status: { 
+              type: 'string', 
+              enum: ['Checked In', 'Pending', 'Booked', 'Cancelled', 'Refunded'], 
+              example: 'Checked In' 
+            }
+          },
+          required: ['id', 'name', 'image', 'orderDate', 'checkIn', 'checkOut', 'specialRequest', 'roomType', 'status']
         },
         Room: {
           type: 'object',
           properties: {
-            roomId: { type: 'string', example: 'R001' },
-            roomName: { type: 'string', example: 'Deluxe King Room' },
-            bedType: { type: 'string', example: 'King Bed' },
+            id: { type: 'string', example: '1' },
+            roomNumber: { type: 'string', example: '#000123456' },
+            name: { type: 'string', example: 'Deluxe A-91223' },
+            bedType: { type: 'string', example: 'Double Bed' },
             roomFloor: { type: 'string', example: 'A-1' },
-            facilities: { type: 'array', items: { type: 'string', example: 'Wi-Fi' } },
-            rate: { type: 'string', example: '$120/Night' },
-            status: { type: 'string', enum: ['Available','Booked','Maintenance','Out of Service'] },
-            image: { type: 'string', format: 'uri', example: 'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg' }
+            facilities: { 
+              type: 'array', 
+              items: { type: 'string', example: 'AC' } 
+            },
+            rate: { type: 'string', example: '145' },
+            image: { type: 'string', example: '/assets/images/room.webp' },
+            status: { type: 'string', example: 'Available' },
+            description: { type: 'string', example: 'A luxurious room with a double bed and all modern amenities. Perfect for a relaxing stay with a bathup, coffee set, and LED TV.' }
           },
-          required: ['roomId','roomName','bedType','roomFloor','facilities','rate','status']
+          required: ['id', 'roomNumber', 'name', 'bedType', 'roomFloor', 'facilities', 'rate', 'image', 'status', 'description']
         }
       }
     }
