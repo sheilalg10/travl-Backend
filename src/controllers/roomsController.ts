@@ -48,5 +48,5 @@ export const deleteRoomById = (req: Request, res: Response): void => {
     res.status(404).json({ message: 'Room not found' });
     return;
   }
-  res.status(204).send(); // No Content
+  res.status(204).send();
 };

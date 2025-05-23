@@ -4,7 +4,20 @@ import routerBooking from "./bookingRouter";
 
 const apiRoutes = Router();
 
-apiRoutes.use('/rooms', routerRoom);
-apiRoutes.use('/bookings', routerBooking);
+apiRoutes.get("/", (req, res) => {
+  res.json({
+    hotelName: "Hotel Miranda",
+    message: "Bienvenido a la API del Hotel Miranda",
+    availableEndpoints: [
+      { path: "/api/rooms", methods: ["GET", "POST"] },
+      { path: "/api/rooms/:id", methods: ["GET", "PUT", "DELETE"] },
+      { path: "/api/bookings", methods: ["GET", "POST"] },
+      { path: "/api/bookings/:id", methods: ["GET", "PUT", "DELETE"] },
+    ],
+  });
+});
+
+apiRoutes.use("/rooms", routerRoom);
+apiRoutes.use("/bookings", routerBooking);
 
 export default apiRoutes;
