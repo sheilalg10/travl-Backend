@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
+import Employees from "../interfaces/employeesInterface";
 
-export interface IEmployee extends Document {
+export interface IEmployee extends Employees, Document {
   image: string;
   name: string;
   id: string;
@@ -22,4 +23,4 @@ const EmployeeSchema: Schema<IEmployee> = new Schema({
   status: { type: String, enum: ["Active", "Inactive"], required: true },
 });
 
-export default mongoose.model<IEmployee>("Employee", EmployeeSchema);
+export const Employees = mongoose.model<IEmployee>("Employee", EmployeeSchema);

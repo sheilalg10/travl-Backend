@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
+import Users from "../interfaces/usersInterfaces";
 
-export interface IUser extends Document {
+export interface IUser extends Users, Document {
   id: string;
   name: string;
   image: string;
