@@ -4,17 +4,18 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "seed": "ts-node src/data/seed.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "faker": "^6.6.6",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
     "swagger-jsdoc": "^6.2.8",
