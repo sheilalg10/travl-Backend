@@ -1,0 +1,22 @@
+import { IUser } from '../../models/usersModel';
+import { addUser, deleteUser, getUser, getUsers, updateUser } from './../../services/mongo/userServiceMongo';
+
+export const allUsers = async () => {
+    return await getUsers();
+}
+
+export const oneUser = async (id: string) => {
+    return await getUser(id);
+}
+
+export const createUser = async (data: IUser) => {
+    return await addUser(data);
+}
+
+export const updateUserById = async (id: string, data: Partial<IUser>) => {
+    return await updateUser(id, data);
+}
+
+export const deleteUserById = async (id: string) => {
+    return await deleteUser(id);
+}

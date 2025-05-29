@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
+import Booking from "../interfaces/bookingInterface";
 
-export interface IBooking extends Document {
+export interface IBooking extends Booking, Document {
   id: string;
   name: string;
   image: string;
