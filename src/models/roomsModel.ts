@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import Room from '../interfaces/roomsInterface';
 
-export interface IRoom extends Document {
+export interface IRoom extends Room, Document {
   id: string;
   roomNumber: string;
   name: string;
@@ -15,7 +16,7 @@ export interface IRoom extends Document {
 
 const roomSchema: Schema = new Schema(
   {
-    id: { type: String, require: true },
+    id: { type: String, required: true, unique: true },
     roomNumber: { type: String, required: true },
     name: { type: String, required: true },
     bedType: { type: String, required: true },
