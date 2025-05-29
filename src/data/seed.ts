@@ -12,6 +12,9 @@ const MONGO_URI = process.env.MONGO_URI || "";
 
 const seed = async () => {
   try {
+    await mongoose.connect(MONGO_URI);
+    console.log("Conectado a MongoDB");
+
     await Promise.all([
       Room.deleteMany({}),
       Booking.deleteMany({}),
@@ -129,6 +132,9 @@ const seed = async () => {
   } catch (error) {
     console.error("Error al ejecutar el seed:", error);
     process.exit(1);
+  } finally {
+    await mongoose.disconnect();
+    process.exit(0);
   }
 };
 
